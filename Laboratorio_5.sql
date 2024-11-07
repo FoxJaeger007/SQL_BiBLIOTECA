@@ -64,7 +64,47 @@ select *  from empleados;
 
 --	Insertar un nuevo empleado con un cargo existente: se quiere agregar a 'Marta López' con el cargo de 'Asistente' y un salario de 3,000,000:
 
-INSERT INTO empleados (id_empl,nombre,cargo,salario) VALUES (4, 'Marta López', 'Asistente', 3000000);       
+INSERT INTO empleados (id_empl,nombre,cargo,salario) VALUES (4, 'Marta López', 'Asistente', 3000000);    
+
+
+-- Parte 2
+
+--Punto 1.a  Actualizar la disponibilidad de un libro (marcarlo como no disponible después de un préstamo)
+
+update libros
+set  disponible = 'no disponible'
+where titulo = 'Laera de 1984';
+
+
+--Punto 1.b Actualizar la fecha de devolución de un préstamo.
+
+update prestamos
+set fecha_prestamo = '2024-09-01'
+where id_prestamo = 1;
+
+--Punto 1.c Eliminar un libro de la base de datos
+
+delete from libros
+where titulo = 'Harry Poter'
+
+
+
+--punto 2.a -- a)	Seleccionar todos los libros:
+
+select * from libros;
+
+--punto 2.b Seleccionar todos los autores
+select * from autores;
+
+--punto 2.c Seleccionar el libro de Gabriel García Márquez
+select * from libros
+where titulo = 'Cien años de Soledad';
+
+-- 2.d Mostrar los libros devueltos en el mes 8 de la tabla prestamos del año 2024, puedes filtrar por el mes en la columna Fecha_Devolucion.
+select * from prestamos
+where  (2024-08-01) < fecha_devolucion<  (2024-08-31)
+
+
 
   
                                        
